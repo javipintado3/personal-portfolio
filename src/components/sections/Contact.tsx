@@ -26,7 +26,13 @@ const Contact = () => {
               Estoy abierto a nuevas oportunidades como desarrollador full stack. Escríbeme o conecta conmigo en LinkedIn.
             </Typography>
 
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+            <Stack
+              direction="row"
+              flexWrap="wrap"
+              spacing={2}
+              useFlexGap
+              justifyContent="center"
+            >
               <Button
                 variant="contained"
                 size="large"

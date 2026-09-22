@@ -60,7 +60,7 @@ export const hobbies: HobbyEntry[] = [
   {
     title: 'Running',
     description:
-      'Sigo compitiendo fuera del agua: corrí la media maratón de El Puerto de Santa María en 2026.',
+      'Sigo entrenando y compitiendo fuera del agua: corrí la media maratón de El Puerto de Santa María en 2026, con la maratón completa como objetivo a largo plazo.',
     cta: { label: 'Ver actividad en Strava', href: 'https://strava.app.link/zoB6vMhHD6b' },
   },
   {
