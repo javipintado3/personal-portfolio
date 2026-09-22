@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import {
+  alpha,
   AppBar,
   Box,
   Button,
@@ -9,27 +10,47 @@ import {
   List,
   ListItemButton,
   ListItemText,
+  type PaletteMode,
   Stack,
   Toolbar,
   Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
+import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
+import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 
 const NAV_ITEMS = [
   { label: 'Sobre mí', href: '#about' },
   { label: 'Experiencia', href: '#experience' },
+  { label: 'Proyectos', href: '#projects' },
   { label: 'Habilidades', href: '#skills' },
+  { label: 'Aficiones', href: '#hobbies' },
   { label: 'Contacto', href: '#contact' },
 ];
 
-const Header = () => {
+type HeaderProps = {
+  mode: PaletteMode;
+  onToggleMode: () => void;
+};
+
+const Header = ({ mode, onToggleMode }: HeaderProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const closeDrawer = () => setDrawerOpen(false);
+
+  const ThemeToggleButton = (
+    <IconButton
+      onClick={onToggleMode}
+      aria-label={mode === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
+      color="inherit"
+    >
+      {mode === 'dark' ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
+    </IconButton>
+  );
 
   return (
     <AppBar
@@ -37,7 +58,7 @@ const Header = () => {
       color="transparent"
       elevation={0}
       sx={{
-        bgcolor: 'rgba(247, 248, 252, 0.85)',
+        bgcolor: alpha(theme.palette.background.default, 0.85),
         backdropFilter: 'blur(8px)',
         borderBottom: '1px solid',
         borderColor: 'divider',
@@ -51,16 +72,20 @@ const Header = () => {
         <Box sx={{ flexGrow: 1 }} />
 
         {isMobile ? (
-          <IconButton onClick={() => setDrawerOpen(true)} aria-label="Abrir menú">
-            <IconMenu2 />
-          </IconButton>
+          <Stack direction="row" spacing={0.5} alignItems="center">
+            {ThemeToggleButton}
+            <IconButton onClick={() => setDrawerOpen(true)} aria-label="Abrir menú">
+              <IconMenu2 />
+            </IconButton>
+          </Stack>
         ) : (
-          <Stack direction="row" spacing={1}>
+          <Stack direction="row" spacing={1} alignItems="center">
             {NAV_ITEMS.map((item) => (
               <Button key={item.href} href={item.href} color="inherit">
                 {item.label}
               </Button>
             ))}
+            {ThemeToggleButton}
           </Stack>
         )}
       </Toolbar>

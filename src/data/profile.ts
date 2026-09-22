@@ -10,6 +10,20 @@ export type ExperienceEntry = {
   tags: string[];
 };
 
+export type ProjectEntry = {
+  name: string;
+  period: string;
+  description: string;
+  tags: string[];
+  github: string;
+};
+
+export type HobbyEntry = {
+  title: string;
+  description: string;
+  cta?: { label: string; href: string };
+};
+
 export const profile = {
   name: 'Javier Pintado Navarro',
   headline: 'Desarrollador Full-Stack en Viafirma',
@@ -19,6 +33,7 @@ export const profile = {
   email: 'jpintadonav@gmail.com',
   linkedin: 'https://www.linkedin.com/in/javier-pintado-navarro-06811a2ab/',
   github: 'https://github.com/jpintado-viafirma',
+  strava: 'https://strava.app.link/aOhraAjHD6b',
 };
 
 export const skillGroups: { title: string; skills: string[] }[] = [
@@ -33,6 +48,36 @@ export const skillGroups: { title: string; skills: string[] }[] = [
   {
     title: 'Herramientas',
     skills: ['Git', 'Docker', 'Python', 'Scrum', 'Active Directory', 'Claude Code'],
+  },
+];
+
+export const hobbies: HobbyEntry[] = [
+  {
+    title: 'Remo de alto rendimiento',
+    description:
+      '7 años compitiendo en el Club Náutico Sevilla, llegando a formar parte del equipo de alto rendimiento y proclamándome varias veces campeón de Andalucía. De ahí viene gran parte de mi disciplina y constancia.',
+  },
+  {
+    title: 'Running',
+    description:
+      'Sigo compitiendo fuera del agua: corrí la media maratón de El Puerto de Santa María en 2026.',
+    cta: { label: 'Ver actividad en Strava', href: 'https://strava.app.link/zoB6vMhHD6b' },
+  },
+  {
+    title: 'Gimnasio y nutrición',
+    description:
+      'Entreno con regularidad, lo que me ha llevado a formarme por mi cuenta en nutrición deportiva.',
+  },
+];
+
+export const projects: ProjectEntry[] = [
+  {
+    name: 'EduVibe',
+    period: 'Trabajo Fin de Grado · CFGS DAW · 2024',
+    description:
+      'Plataforma educativa web para la gestión de clases, tareas y comunicación entre profesores y estudiantes, con roles diferenciados y despliegue containerizado.',
+    tags: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'Docker'],
+    github: 'https://github.com/javipintado3/Plataforma-Educativa-Interactiva---EduVibe',
   },
 ];
 
