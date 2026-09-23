@@ -1,4 +1,4 @@
-import { Box, Chip, Container, Stack, Typography } from '@mui/material';
+import { Avatar, Box, Chip, Container, Stack, Typography } from '@mui/material';
 import { IconBriefcase } from '@tabler/icons-react';
 
 import Reveal from '../common/Reveal';
@@ -17,21 +17,22 @@ const Experience = () => {
             <Reveal key={`${entry.company}-${entry.period}`}>
               <Stack direction="row" spacing={3}>
                 <Stack alignItems="center" sx={{ pt: 0.5 }}>
-                  <Box
+                  <Avatar
+                    src={entry.logoUrl}
+                    alt={entry.company}
+                    slotProps={{ img: { sx: { objectFit: 'contain', p: 0.75 } } }}
                     sx={{
                       width: 40,
                       height: 40,
-                      borderRadius: '50%',
-                      bgcolor: 'primary.main',
+                      bgcolor: entry.logoUrl ? 'background.paper' : 'primary.main',
                       color: 'primary.contrastText',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      border: '1px solid',
+                      borderColor: 'divider',
                       flexShrink: 0,
                     }}
                   >
                     <IconBriefcase size={20} />
-                  </Box>
+                  </Avatar>
                   {index < experience.length - 1 ? (
                     <Box sx={{ width: 2, flexGrow: 1, bgcolor: 'divider', my: 1 }} />
                   ) : null}

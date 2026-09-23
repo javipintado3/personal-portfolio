@@ -1,5 +1,5 @@
 import { Box, Button, Container, Paper, Stack, Typography } from '@mui/material';
-import { IconBrandGithub, IconBrandLinkedin, IconBrandStrava, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-react';
 
 import Reveal from '../common/Reveal';
 import { profile } from '../../data/profile';
@@ -63,17 +63,6 @@ const Contact = () => {
                 sx={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }}
               >
                 GitHub
-              </Button>
-              <Button
-                variant="outlined"
-                size="large"
-                startIcon={<IconBrandStrava size={18} />}
-                href={profile.strava}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }}
-              >
-                Strava
               </Button>
             </Stack>
           </Paper>

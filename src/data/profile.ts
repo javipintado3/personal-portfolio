@@ -1,6 +1,7 @@
 export type ExperienceEntry = {
   role: string;
   company: string;
+  logoUrl?: string;
   period: string;
   duration: string;
   location: string;
@@ -29,11 +30,10 @@ export const profile = {
   headline: 'Desarrollador Full-Stack en Viafirma',
   location: 'Camas, Andalucía, España',
   about:
-    'Soy desarrollador Full Stack con experiencia en el ámbito tecnológico como técnico IoT y técnico informático. Apasionado por el desarrollo de aplicaciones y la programación, busco constantemente nuevas oportunidades para ampliar conocimientos y crecer profesionalmente. Me gusta trabajar en equipo, colaborar en entornos dinámicos y aportar valor mediante una actitud proactiva, capacidad de aprendizaje y compromiso con cada proyecto.',
+    'Empecé mi camino en la tecnología como técnico IoT e informático, hasta que la pasión por construir aplicaciones me llevó al desarrollo Full Stack: hoy trabajo sobre todo en frontend con React, aunque también toco backend con Java. Fuera del código, siete años compitiendo en remo de alto rendimiento me enseñaron una disciplina que aplico igual al trabajo en equipo: aprender rápido, cuidar cada detalle y no conformarme con que algo simplemente funcione.',
   email: 'jpintadonav@gmail.com',
   linkedin: 'https://www.linkedin.com/in/javier-pintado-navarro-06811a2ab/',
   github: 'https://github.com/jpintado-viafirma',
-  strava: 'https://strava.app.link/aOhraAjHD6b',
 };
 
 export const skillGroups: { title: string; skills: string[] }[] = [
@@ -43,11 +43,11 @@ export const skillGroups: { title: string; skills: string[] }[] = [
   },
   {
     title: 'Backend',
-    skills: ['Spring Boot', 'Java'],
+    skills: ['Spring Boot', 'Java', 'Django', 'Python'],
   },
   {
     title: 'Herramientas',
-    skills: ['Git', 'Docker', 'Python', 'Scrum', 'Active Directory', 'Claude Code'],
+    skills: ['Git', 'Docker', 'Scrum', 'Active Directory', 'Claude Code'],
   },
 ];
 
@@ -85,6 +85,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: 'Desarrollador full stack',
     company: 'Viafirma',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=viafirma.com&sz=128',
     period: 'sept. 2025 - actualidad',
     duration: '1 año 1 mes',
     location: 'Tomares, Andalucía, España',
@@ -104,34 +105,55 @@ export const experience: ExperienceEntry[] = [
   {
     role: 'Desarrollador / IoT Technician',
     company: 'Cibernos',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=cibernos.com&sz=128',
     period: 'oct. 2024 - sept. 2025',
     duration: '1 año',
     location: 'Sevilla, Andalucía, España',
     workMode: 'Presencial',
     description:
-      'Gestión y soporte remoto de sistemas IoT distribuidos, con instalación y configuración de contenedores Docker para plataformas de virtualización y orquestación de flujos. Desarrollo de scripts en Python para automatizar pruebas, procesar datos y personalizar el comportamiento de sensores. Configuración de dispositivos IoT mediante protocolos como MQTT para su integración en plataformas centralizadas.',
+      'Soporte y gestión remota de una red de dispositivos IoT distribuidos, combinando automatización en Python con despliegues en contenedores.',
+    bullets: [
+      'Di soporte remoto a una red distribuida de dispositivos IoT, diagnosticando y resolviendo incidencias de conectividad y funcionamiento en producción.',
+      'Instalé y configuré contenedores Docker para desplegar plataformas de virtualización y orquestación de flujos de datos.',
+      'Automaticé pruebas y el procesado de datos con scripts en Python, adaptando también el comportamiento de los sensores a cada despliegue.',
+      'Integré dispositivos IoT en plataformas centralizadas de monitorización mediante el protocolo MQTT.',
+      'Administré la asignación de red de los dispositivos conectados mediante DHCP.',
+    ],
     tags: ['Docker', 'Python', 'MQTT', 'DHCP'],
   },
   {
     role: 'Desarrollador full stack',
     company: 'Eviden',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=eviden.com&sz=128',
     period: 'mar. 2024 - jun. 2024',
     duration: '4 meses · Contrato de prácticas',
     location: 'Sevilla, Andalucía, España',
     workMode: 'Híbrido',
     description:
-      'Participé en una formación intensiva de 4 semanas en Angular, Spring Boot y Git, seguida por un proyecto de 4 semanas en el que diseñamos y desarrollamos desde cero el prototipo funcional de una aplicación interna. Equipo de 6 personas con metodología Scrum, contribuyendo en todas las fases: desde la conceptualización hasta la demo final.',
+      'Formación intensiva en Angular, Spring Boot y Git, seguida del desarrollo en equipo del prototipo funcional de una aplicación interna.',
+    bullets: [
+      'Completé 4 semanas de formación intensiva en Angular, Spring Boot y Git como preparación técnica previa al proyecto.',
+      'Formé parte de un equipo de 6 personas que diseñó y construyó desde cero el prototipo funcional de una aplicación interna, con metodología Scrum.',
+      'Desarrollé funcionalidades tanto en el frontend, con Angular, como en el backend, con Spring Boot.',
+      'Participé en todas las fases del proyecto, desde la conceptualización y el diseño hasta las pruebas y la demo final.',
+    ],
     tags: ['Angular', 'Spring Boot', 'Git', 'Scrum'],
   },
   {
     role: 'Técnico informático',
     company: 'Casa Hospital San Juan de Dios',
+    logoUrl: '/logos/san-juan-de-dios.svg',
     period: 'mar. 2022 - jun. 2022',
     duration: '4 meses · Contrato de prácticas',
     location: 'Bormujos, Andalucía, España',
     workMode: 'Presencial',
     description:
-      'Reparación de equipos y gestión de incidencias en el hospital. Administración de permisos de usuario a través de Active Directory, asegurando un acceso adecuado y la gestión eficiente de las cuentas del personal médico y administrativo.',
+      'Soporte técnico y gestión de incidencias en el hospital, con administración de accesos de usuario a través de Active Directory.',
+    bullets: [
+      'Diagnostiqué y reparé equipos informáticos, resolviendo incidencias de hardware y software del personal médico y administrativo.',
+      'Administré permisos y cuentas de usuario mediante Active Directory, garantizando un acceso adecuado a los recursos según cada perfil.',
+      'Di soporte técnico presencial a los distintos departamentos, priorizando las incidencias críticas en un entorno asistencial.',
+    ],
     tags: ['Active Directory', 'Resolución de problemas'],
   },
 ];
