@@ -1,6 +1,7 @@
 import { Box, Button, Chip, Container, Grid, Paper, Stack, Typography } from '@mui/material';
-import { IconBrandGithub } from '@tabler/icons-react';
+import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 
+import ImageGallery from '../common/ImageGallery';
 import Reveal from '../common/Reveal';
 import { projects } from '../../data/profile';
 
@@ -14,7 +15,7 @@ const Projects = () => {
 
         <Grid container spacing={3}>
           {projects.map((project) => (
-            <Grid key={project.name} size={{ xs: 12, sm: 6 }}>
+            <Grid key={project.name} size={{ xs: 12, sm: project.images ? 12 : 6 }}>
               <Reveal>
                 <Paper
                   variant="outlined"
@@ -39,21 +40,34 @@ const Projects = () => {
                     <Typography variant="body2" sx={{ lineHeight: 1.7, flexGrow: 1 }}>
                       {project.description}
                     </Typography>
+                    {project.images ? <ImageGallery images={project.images} /> : null}
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                       {project.tags.map((tag) => (
                         <Chip key={tag} label={tag} size="small" variant="outlined" />
                       ))}
                     </Box>
-                    <Button
-                      size="small"
-                      startIcon={<IconBrandGithub size={16} />}
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      sx={{ alignSelf: 'flex-start', mt: 1 }}
-                    >
-                      Ver en GitHub
-                    </Button>
+                    <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', mt: 1 }}>
+                      <Button
+                        size="small"
+                        startIcon={<IconBrandGithub size={16} />}
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Ver en GitHub
+                      </Button>
+                      {project.demo ? (
+                        <Button
+                          size="small"
+                          startIcon={<IconExternalLink size={16} />}
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Ver demo
+                        </Button>
+                      ) : null}
+                    </Stack>
                   </Stack>
                 </Paper>
               </Reveal>

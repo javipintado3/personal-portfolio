@@ -3,6 +3,7 @@ import { IconBriefcase } from '@tabler/icons-react';
 
 import Reveal from '../common/Reveal';
 import { experience } from '../../data/profile';
+import { formatDuration } from '../../utils/duration';
 
 const Experience = () => {
   return (
@@ -53,7 +54,7 @@ const Experience = () => {
                   </Stack>
 
                   <Typography variant="body2" sx={{ color: 'text.secondary', mt: 0.5 }}>
-                    {entry.period} · {entry.duration} · {entry.location} · {entry.workMode}
+                    {entry.period} · {entry.since ? formatDuration(entry.since) : entry.duration} · {entry.location} · {entry.workMode}
                   </Typography>
 
                   <Typography variant="body2" sx={{ mt: 1.5, color: 'text.primary', lineHeight: 1.7 }}>

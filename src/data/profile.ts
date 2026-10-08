@@ -3,7 +3,10 @@ export type ExperienceEntry = {
   company: string;
   logoUrl?: string;
   period: string;
-  duration: string;
+  /** Texto fijo. En los puestos en curso se calcula a partir de `since`. */
+  duration?: string;
+  /** Fecha de inicio (AAAA-MM-DD) de un puesto en curso: la duración se calcula sola. */
+  since?: string;
   location: string;
   workMode: string;
   description: string;
@@ -17,6 +20,10 @@ export type ProjectEntry = {
   description: string;
   tags: string[];
   github: string;
+  /** Enlace a la aplicación desplegada, si la hay. */
+  demo?: string;
+  /** Capturas del proyecto: miniaturas que se abren en grande. */
+  images?: { src: string; alt: string }[];
 };
 
 export type HobbyEntry = {
@@ -33,17 +40,17 @@ export const profile = {
     'Empecé mi camino en la tecnología como técnico IoT e informático, hasta que la pasión por construir aplicaciones me llevó al desarrollo Full Stack: hoy trabajo sobre todo en frontend con React, aunque también toco backend con Java. Fuera del código, siete años compitiendo en remo de alto rendimiento me enseñaron una disciplina que aplico igual al trabajo en equipo: aprender rápido, cuidar cada detalle y no conformarme con que algo simplemente funcione.',
   email: 'jpintadonav@gmail.com',
   linkedin: 'https://www.linkedin.com/in/javier-pintado-navarro-06811a2ab/',
-  github: 'https://github.com/jpintado-viafirma',
+  github: 'https://github.com/javipintado3',
 };
 
 export const skillGroups: { title: string; skills: string[] }[] = [
   {
     title: 'Frontend',
-    skills: ['React.js', 'TypeScript', 'JavaScript', 'Angular', 'Material UI', 'CSS'],
+    skills: ['React.js', 'TypeScript', 'JavaScript', 'Angular', 'Material UI', 'Vite', 'CSS'],
   },
   {
     title: 'Backend',
-    skills: ['Spring Boot', 'Java', 'Django', 'Python'],
+    skills: ['Spring Boot', 'Java', 'PostgreSQL', 'Flyway', 'JWT', 'Django', 'Python'],
   },
   {
     title: 'Herramientas',
@@ -72,12 +79,20 @@ export const hobbies: HobbyEntry[] = [
 
 export const projects: ProjectEntry[] = [
   {
-    name: 'EduVibe',
-    period: 'Trabajo Fin de Grado · CFGS DAW · 2024',
+    name: 'EduVibe v2',
+    period: 'Trabajo Fin de Grado · CFGS DAW (v1, 2024) · Renovado como v2 en 2026',
     description:
-      'Plataforma educativa web para la gestión de clases, tareas y comunicación entre profesores y estudiantes, con roles diferenciados y despliegue containerizado.',
-    tags: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'Docker'],
-    github: 'https://github.com/javipintado3/Plataforma-Educativa-Interactiva---EduVibe',
+      'Nació como mi Trabajo Fin de Grado: una plataforma educativa con clases, tareas y comunicación entre profesorado y alumnado. Dos años después le he dado una vuelta de tuerca y la he renovado como v2, entre Google Classroom y Moodle: rúbricas y calificaciones ponderadas, exámenes con corrección automática, foros y calendario, registro por solicitud con aprobación del administrador, verificación en dos pasos y flujos RGPD. API con Spring Boot y permisos resueltos en el servidor, 159 tests y despliegue con Docker o en planes gratuitos (Neon, Render y Vercel).',
+    tags: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+    github: 'https://github.com/javipintado3/Eduvibe-v2',
+    demo: 'https://eduvibe-v2.vercel.app',
+    images: [
+      { src: '/projects/eduvibe/login.jpg', alt: 'Pantalla de inicio de sesión' },
+      { src: '/projects/eduvibe/solicitar-cuenta.png', alt: 'Solicitud de cuenta con mensaje para la administración' },
+      { src: '/projects/eduvibe/solicitudes-registro.png', alt: 'Panel de solicitudes de registro del administrador' },
+      { src: '/projects/eduvibe/mis-clases.jpg', alt: 'Mis clases' },
+      { src: '/projects/eduvibe/trabajo-de-clase.jpg', alt: 'Módulo de una clase: tareas, fechas límite y estado de entrega' },
+    ],
   },
 ];
 
@@ -87,7 +102,7 @@ export const experience: ExperienceEntry[] = [
     company: 'Viafirma',
     logoUrl: 'https://www.google.com/s2/favicons?domain=viafirma.com&sz=128',
     period: 'sept. 2025 - actualidad',
-    duration: '1 año 1 mes',
+    since: '2025-09-01',
     location: 'Tomares, Andalucía, España',
     workMode: 'Presencial',
     description:
