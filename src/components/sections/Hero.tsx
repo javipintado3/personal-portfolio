@@ -117,8 +117,10 @@ const Hero = () => {
               <Stack
                 direction="row"
                 spacing={1.5}
+                useFlexGap
+                flexWrap="wrap"
                 justifyContent={{ xs: 'center', md: 'flex-start' }}
-                sx={{ pt: 1, ...fadeInUp, animationDelay: '0.3s' }}
+                sx={{ pt: 1, '& .MuiButton-root': { whiteSpace: 'nowrap' }, ...fadeInUp, animationDelay: '0.3s' }}
               >
                 <Button
                   variant="contained"
