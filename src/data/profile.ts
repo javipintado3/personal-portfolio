@@ -26,10 +26,15 @@ export type ProjectEntry = {
   images?: { src: string; alt: string }[];
 };
 
+export type HobbyAnimation = 'rowing' | 'running' | 'gym';
+
 export type HobbyEntry = {
   title: string;
+  /** Ilustración animada que sale al darse la vuelta la tarjeta. */
+  animation: HobbyAnimation;
   description: string;
-  cta?: { label: string; href: string };
+  /** Enlace destacado en la cara de atrás: `caption` explica a dónde lleva. */
+  cta?: { label: string; href: string; caption?: string };
 };
 
 export const profile = {
@@ -61,17 +66,24 @@ export const skillGroups: { title: string; skills: string[] }[] = [
 export const hobbies: HobbyEntry[] = [
   {
     title: 'Remo de alto rendimiento',
+    animation: 'rowing',
     description:
       '7 años compitiendo en el Club Náutico Sevilla, llegando a formar parte del equipo de alto rendimiento y proclamándome varias veces campeón de Andalucía. De ahí viene gran parte de mi disciplina y constancia.',
   },
   {
     title: 'Running',
+    animation: 'running',
     description:
       'Sigo entrenando y compitiendo fuera del agua: corrí la media maratón de El Puerto de Santa María en 2026, con la maratón completa como objetivo a largo plazo.',
-    cta: { label: 'Ver actividad en Strava', href: 'https://strava.app.link/zoB6vMhHD6b' },
+    cta: {
+      label: 'Ver mi marca en Strava',
+      href: 'https://strava.app.link/zoB6vMhHD6b',
+      caption: 'Media Maratón de El Puerto de Santa María',
+    },
   },
   {
     title: 'Gimnasio y nutrición',
+    animation: 'gym',
     description:
       'Entreno con regularidad, lo que me ha llevado a formarme por mi cuenta en nutrición deportiva.',
   },

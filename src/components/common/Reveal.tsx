@@ -5,9 +5,11 @@ import { Grow } from '@mui/material';
 type RevealProps = {
   children: ReactNode;
   timeout?: number;
+  /** Que el contenido ocupe toda la altura disponible (tarjetas que deben medir lo mismo). */
+  stretch?: boolean;
 };
 
-const Reveal = ({ children, timeout = 600 }: RevealProps) => {
+const Reveal = ({ children, timeout = 600, stretch = false }: RevealProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -30,9 +32,9 @@ const Reveal = ({ children, timeout = 600 }: RevealProps) => {
   }, []);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} style={stretch ? { height: '100%' } : undefined}>
       <Grow in={visible} timeout={timeout}>
-        <div>{children}</div>
+        <div style={stretch ? { height: '100%' } : undefined}>{children}</div>
       </Grow>
     </div>
   );
