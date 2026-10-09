@@ -5,6 +5,7 @@ import { IconBarbell, IconBrandStrava, IconRotate2, IconRun, IconTrophy, type Ic
 
 import FlipCard from '../common/FlipCard';
 import Reveal from '../common/Reveal';
+import SectionTitle from '../common/SectionTitle';
 import GymAnimation from '../common/animations/GymAnimation';
 import RowingAnimation from '../common/animations/RowingAnimation';
 import RunningAnimation from '../common/animations/RunningAnimation';
@@ -32,9 +33,7 @@ const Hobbies = () => {
   return (
     <Box id="hobbies" sx={{ py: { xs: 6, md: 8 } }}>
       <Container maxWidth="md">
-        <Typography variant="h3" sx={{ fontSize: { xs: '1.75rem', md: '2rem' }, mb: 4 }}>
-          Fuera del trabajo
-        </Typography>
+        <SectionTitle>Fuera del trabajo</SectionTitle>
 
         <Grid container spacing={3}>
           {hobbies.map((hobby) => {

@@ -2,6 +2,7 @@ import { Avatar, Box, Chip, Container, Stack, Typography } from '@mui/material';
 import { IconBriefcase } from '@tabler/icons-react';
 
 import Reveal from '../common/Reveal';
+import SectionTitle from '../common/SectionTitle';
 import { experience } from '../../data/profile';
 import { formatDuration } from '../../utils/duration';
 
@@ -9,9 +10,7 @@ const Experience = () => {
   return (
     <Box id="experience" sx={{ py: { xs: 6, md: 8 } }}>
       <Container maxWidth="md">
-        <Typography variant="h3" sx={{ fontSize: { xs: '1.75rem', md: '2rem' }, mb: 5 }}>
-          Experiencia
-        </Typography>
+        <SectionTitle mb={5}>Experiencia</SectionTitle>
 
         <Stack spacing={0}>
           {experience.map((entry, index) => (

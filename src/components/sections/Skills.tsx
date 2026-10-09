@@ -1,20 +1,19 @@
 import { Box, Chip, Container, Grid, Paper, Typography } from '@mui/material';
 
 import Reveal from '../common/Reveal';
+import SectionTitle from '../common/SectionTitle';
 import { skillGroups } from '../../data/profile';
 
 const Skills = () => {
   return (
     <Box id="skills" sx={{ py: { xs: 6, md: 8 }, bgcolor: 'background.paper' }}>
       <Container maxWidth="md">
-        <Typography variant="h3" sx={{ fontSize: { xs: '1.75rem', md: '2rem' }, mb: 4 }}>
-          Habilidades
-        </Typography>
+        <SectionTitle>Habilidades</SectionTitle>
 
         <Grid container spacing={3}>
           {skillGroups.map((group) => (
             <Grid key={group.title} size={{ xs: 12, sm: 4 }}>
-              <Reveal>
+              <Reveal stretch>
                 <Paper
                   variant="outlined"
                   sx={{
