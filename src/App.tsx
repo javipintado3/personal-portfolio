@@ -2,8 +2,10 @@ import { useMemo, useState } from 'react';
 
 import { CssBaseline, type PaletteMode, ThemeProvider } from '@mui/material';
 
+import BackToTop from './components/layout/BackToTop';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
+import ScrollProgress from './components/layout/ScrollProgress';
 import About from './components/sections/About';
 import Contact from './components/sections/Contact';
 import Experience from './components/sections/Experience';
@@ -44,6 +46,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <ScrollProgress />
       <Header mode={mode} onToggleMode={toggleMode} />
       <Hero />
       <About />
@@ -53,6 +56,7 @@ const App = () => {
       <Hobbies />
       <Contact />
       <Footer />
+      <BackToTop />
     </ThemeProvider>
   );
 };
