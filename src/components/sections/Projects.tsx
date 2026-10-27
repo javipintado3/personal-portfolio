@@ -19,7 +19,6 @@ const ProjectCard = ({ project }: { project: ProjectEntry }) => {
       variant="outlined"
       sx={{
         p: { xs: 2.5, md: 3.5 },
-        height: '100%',
         borderRadius: 3,
         transition: 'transform 0.25s ease, box-shadow 0.25s ease',
         '&:hover': {
@@ -28,13 +27,8 @@ const ProjectCard = ({ project }: { project: ProjectEntry }) => {
         },
       }}
     >
-      <Stack
-        direction={{ xs: 'column', md: project.images ? 'row' : 'column' }}
-        spacing={{ xs: 3, md: 4 }}
-        alignItems={{ md: project.images ? 'center' : 'stretch' }}
-        sx={{ height: '100%' }}
-      >
-        <Stack spacing={1.5} sx={{ flex: 1, minWidth: 0, height: '100%' }}>
+      <Stack spacing={{ xs: 3, md: 4 }}>
+        <Stack spacing={1.5} sx={{ flex: 1, minWidth: 0 }}>
           <Typography variant="h5" sx={{ fontWeight: 700 }}>
             {project.name}
           </Typography>
@@ -45,7 +39,6 @@ const ProjectCard = ({ project }: { project: ProjectEntry }) => {
             variant="body2"
             sx={{
               lineHeight: 1.7,
-              flexGrow: 1,
               display: '-webkit-box',
               WebkitBoxOrient: 'vertical',
               WebkitLineClamp: expanded || !isLong ? 'unset' : 4,
@@ -80,21 +73,23 @@ const ProjectCard = ({ project }: { project: ProjectEntry }) => {
                 Ver demo
               </Button>
             ) : null}
-            <Button
-              variant="outlined"
-              startIcon={<IconBrandGithub size={18} />}
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </Button>
+            {project.github ? (
+              <Button
+                variant="outlined"
+                startIcon={<IconBrandGithub size={18} />}
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </Button>
+            ) : null}
           </Stack>
         </Stack>
 
         {project.images ? (
-          <Box sx={{ flex: 1.1, minWidth: 0, width: '100%' }}>
-            <ImageGallery images={project.images} />
+          <Box sx={{ minWidth: 0, width: '100%' }}>
+            <ImageGallery images={project.images} variant={project.imagesVariant} />
           </Box>
         ) : null}
       </Stack>
@@ -105,12 +100,12 @@ const ProjectCard = ({ project }: { project: ProjectEntry }) => {
 const Projects = () => {
   return (
     <Box id="projects" sx={{ py: { xs: 6, md: 8 }, bgcolor: 'background.paper' }}>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <SectionTitle>Proyectos</SectionTitle>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={3} sx={{ alignItems: 'flex-start' }}>
           {projects.map((project) => (
-            <Grid key={project.name} size={{ xs: 12, sm: project.images ? 12 : 6 }}>
+            <Grid key={project.name} size={{ xs: 12, md: 6 }}>
               <Reveal>
                 <ProjectCard project={project} />
               </Reveal>

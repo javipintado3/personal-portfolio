@@ -19,11 +19,14 @@ export type ProjectEntry = {
   period: string;
   description: string;
   tags: string[];
-  github: string;
+  /** Repositorio público, si lo hay. */
+  github?: string;
   /** Enlace a la aplicación desplegada, si la hay. */
   demo?: string;
   /** Capturas del proyecto: miniaturas que se abren en grande. */
   images?: { src: string; alt: string }[];
+  /** `mobile` enseña las capturas dentro de un marco de teléfono. */
+  imagesVariant?: 'desktop' | 'mobile';
 };
 
 export type HobbyAnimation = 'rowing' | 'running' | 'gym';
@@ -51,7 +54,7 @@ export const profile = {
 export const skillGroups: { title: string; skills: string[] }[] = [
   {
     title: 'Frontend',
-    skills: ['React.js', 'TypeScript', 'JavaScript', 'Angular', 'Material UI', 'Vite', 'CSS'],
+    skills: ['React.js', 'React Native', 'TypeScript', 'JavaScript', 'Angular', 'Material UI', 'Vite', 'CSS'],
   },
   {
     title: 'Backend',
@@ -90,6 +93,20 @@ export const hobbies: HobbyEntry[] = [
 ];
 
 export const projects: ProjectEntry[] = [
+  {
+    name: 'Strappr',
+    period: 'Proyecto personal · En proceso desde 2026',
+    description:
+      'Red social móvil para registrar y compartir entrenos de fuerza. Creas tu split con sus rutinas, entrenas con el cronómetro y las series en vivo, y la app te recuerda lo que levantaste la última vez con ese ejercicio, ese agarre y ese gimnasio. Las series se pueden marcar (con ayuda, con correas, acompañado), y el perfil guarda el historial, los récords y un calendario con tu racha semanal. Cada ejercicio lleva su dibujo y la app te avisa cuando superas un récord. API con Java 21, Spring Boot y PostgreSQL, y una app para iOS, Android y web con React Native, Expo y Tamagui, con tests automáticos y despliegue con Docker.',
+    tags: ['React Native', 'Expo', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+    imagesVariant: 'mobile',
+    images: [
+      { src: '/projects/strappr/workout.png', alt: 'Entreno en curso con cronómetro, dibujos de los ejercicios y aviso de récords' },
+      { src: '/projects/strappr/profile.png', alt: 'Perfil con la racha semanal y el calendario de entrenos' },
+      { src: '/projects/strappr/routine-editor.png', alt: 'Editor de rutina con sus ejercicios, series y repeticiones' },
+      { src: '/projects/strappr/splits.png', alt: 'Mis splits y plantillas listas para usar' },
+    ],
+  },
   {
     name: 'EduVibe v2',
     period: 'Trabajo Fin de Grado · CFGS DAW (v1, 2024) · Renovado como v2 en 2026',

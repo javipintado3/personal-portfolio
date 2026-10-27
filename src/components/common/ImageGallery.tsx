@@ -8,9 +8,17 @@ export type GalleryImage = {
   alt: string;
 };
 
+export type GalleryVariant = 'desktop' | 'mobile';
+
 type ImageGalleryProps = {
   images: GalleryImage[];
+  /** `mobile` enseña las capturas dentro de un marco de teléfono en vertical. */
+  variant?: GalleryVariant;
 };
+
+const DESKTOP_ASPECT_RATIO = '16 / 10';
+const MOBILE_ASPECT_RATIO = '9 / 19';
+const PHONE_BEZEL_COLOR = '#1E2024';
 
 /**
  * Captura principal grande dentro de un marco de ventana, con miniaturas debajo
@@ -18,9 +26,11 @@ type ImageGalleryProps = {
  * pasar de una a otra (también con el teclado). Sin efectos: el estado es la
  * captura seleccionada y la imagen abierta, o null si el visor está cerrado.
  */
-const ImageGallery = ({ images }: ImageGalleryProps) => {
+const ImageGallery = ({ images, variant = 'desktop' }: ImageGalleryProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const isMobile = variant === 'mobile';
+  const aspectRatio = isMobile ? MOBILE_ASPECT_RATIO : DESKTOP_ASPECT_RATIO;
 
   const goTo = (offset: number) => {
     setOpenIndex((current) =>
@@ -34,20 +44,34 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
         <Box
-          sx={{
-            border: 1,
-            borderColor: 'divider',
-            borderRadius: 2,
-            overflow: 'hidden',
-            bgcolor: 'background.default',
-            boxShadow: '0 16px 36px -18px rgba(41, 82, 227, 0.45)',
-          }}
+          sx={
+            isMobile
+              ? {
+                  width: { xs: 220, md: 240 },
+                  alignSelf: 'center',
+                  border: `7px solid ${PHONE_BEZEL_COLOR}`,
+                  borderRadius: '34px',
+                  overflow: 'hidden',
+                  bgcolor: PHONE_BEZEL_COLOR,
+                  boxShadow: '0 16px 36px -18px rgba(41, 82, 227, 0.45)',
+                }
+              : {
+                  border: 1,
+                  borderColor: 'divider',
+                  borderRadius: 2,
+                  overflow: 'hidden',
+                  bgcolor: 'background.default',
+                  boxShadow: '0 16px 36px -18px rgba(41, 82, 227, 0.45)',
+                }
+          }
         >
-          <Box sx={{ display: 'flex', gap: 0.75, px: 1.5, py: 1, bgcolor: 'action.hover' }}>
-            {['#FF5F57', '#FEBC2E', '#28C840'].map((color) => (
-              <Box key={color} sx={{ width: 9, height: 9, borderRadius: '50%', bgcolor: color }} />
-            ))}
-          </Box>
+          {isMobile ? null : (
+            <Box sx={{ display: 'flex', gap: 0.75, px: 1.5, py: 1, bgcolor: 'action.hover' }}>
+              {['#FF5F57', '#FEBC2E', '#28C840'].map((color) => (
+                <Box key={color} sx={{ width: 9, height: 9, borderRadius: '50%', bgcolor: color }} />
+              ))}
+            </Box>
+          )}
           <Box
             component="button"
             type="button"
@@ -62,7 +86,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
               overflow: 'hidden',
               cursor: 'zoom-in',
               bgcolor: 'transparent',
-              aspectRatio: '16 / 10',
+              aspectRatio,
               '&:hover img': { transform: 'scale(1.04)' },
               '&:hover .zoom-overlay, &:focus-visible .zoom-overlay': { opacity: 1 },
               '&:focus-visible': { outline: 2, outlineColor: 'primary.main', outlineOffset: -2 },
@@ -99,7 +123,16 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           </Box>
         </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: `repeat(${images.length}, 1fr)`, gap: 1 }}>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: `repeat(${images.length}, 1fr)`,
+            gap: 1,
+            width: '100%',
+            maxWidth: isMobile ? 320 : 'none',
+            alignSelf: 'center',
+          }}
+        >
           {images.map((image, index) => (
             <Box
               key={image.src}
@@ -115,7 +148,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 overflow: 'hidden',
                 cursor: 'pointer',
                 bgcolor: 'background.default',
-                aspectRatio: '16 / 10',
+                aspectRatio,
                 opacity: index === selectedIndex ? 1 : 0.6,
                 transition: 'opacity 0.2s ease, border-color 0.2s ease',
                 '&:hover': { opacity: 1 },
