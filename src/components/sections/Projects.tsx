@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { Box, Button, Chip, Container, Grid, Paper, Stack, Typography } from '@mui/material';
 import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 
@@ -8,12 +6,8 @@ import Reveal from '../common/Reveal';
 import SectionTitle from '../common/SectionTitle';
 import { projects, type ProjectEntry } from '../../data/profile';
 
-const LONG_DESCRIPTION_LENGTH = 220;
-
-const ProjectCard = ({ project }: { project: ProjectEntry }) => {
-  const [expanded, setExpanded] = useState(false);
-  const isLong = project.description.length > LONG_DESCRIPTION_LENGTH;
-
+// Con `reverse` la tarjeta enseña las capturas a la izquierda y el texto a la derecha (solo en pantallas grandes)
+const ProjectCard = ({ project, reverse }: { project: ProjectEntry; reverse: boolean }) => {
   return (
     <Paper
       variant="outlined"
@@ -27,7 +21,11 @@ const ProjectCard = ({ project }: { project: ProjectEntry }) => {
         },
       }}
     >
-      <Stack spacing={{ xs: 3, md: 4 }}>
+      <Stack
+        direction={{ xs: 'column', md: reverse ? 'row-reverse' : 'row' }}
+        spacing={{ xs: 3, md: 5 }}
+        sx={{ alignItems: { md: 'center' } }}
+      >
         <Stack spacing={1.5} sx={{ flex: 1, minWidth: 0 }}>
           <Typography variant="h5" sx={{ fontWeight: 700 }}>
             {project.name}
@@ -35,27 +33,9 @@ const ProjectCard = ({ project }: { project: ProjectEntry }) => {
           <Typography variant="body2" sx={{ color: 'primary.main', fontWeight: 600 }}>
             {project.period}
           </Typography>
-          <Typography
-            variant="body2"
-            sx={{
-              lineHeight: 1.7,
-              display: '-webkit-box',
-              WebkitBoxOrient: 'vertical',
-              WebkitLineClamp: expanded || !isLong ? 'unset' : 4,
-              overflow: 'hidden',
-            }}
-          >
+          <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
             {project.description}
           </Typography>
-          {isLong ? (
-            <Button
-              size="small"
-              onClick={() => setExpanded((current) => !current)}
-              sx={{ alignSelf: 'flex-start', px: 0, minWidth: 0 }}
-            >
-              {expanded ? 'Leer menos' : 'Leer más'}
-            </Button>
-          ) : null}
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
             {project.tags.map((tag) => (
               <Chip key={tag} label={tag} size="small" variant="outlined" color="primary" />
@@ -88,7 +68,7 @@ const ProjectCard = ({ project }: { project: ProjectEntry }) => {
         </Stack>
 
         {project.images ? (
-          <Box sx={{ minWidth: 0, width: '100%' }}>
+          <Box sx={{ minWidth: 0, width: { xs: '100%', md: '55%' }, flexShrink: 0 }}>
             <ImageGallery images={project.images} variant={project.imagesVariant} />
           </Box>
         ) : null}
@@ -104,10 +84,10 @@ const Projects = () => {
         <SectionTitle>Proyectos</SectionTitle>
 
         <Grid container spacing={3} sx={{ alignItems: 'flex-start' }}>
-          {projects.map((project) => (
-            <Grid key={project.name} size={{ xs: 12, md: 6 }}>
+          {projects.map((project, index) => (
+            <Grid key={project.name} size={{ xs: 12 }}>
               <Reveal>
-                <ProjectCard project={project} />
+                <ProjectCard project={project} reverse={index % 2 === 1} />
               </Reveal>
             </Grid>
           ))}
