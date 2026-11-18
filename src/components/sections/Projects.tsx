@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { Box, Button, Chip, Container, Grid, Paper, Stack, Typography } from '@mui/material';
 import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 
@@ -8,13 +6,8 @@ import Reveal from '../common/Reveal';
 import SectionTitle from '../common/SectionTitle';
 import { projects, type ProjectEntry } from '../../data/profile';
 
-const LONG_DESCRIPTION_LENGTH = 220;
-
 // Con `reverse` la tarjeta enseña las capturas a la izquierda y el texto a la derecha (solo en pantallas grandes)
 const ProjectCard = ({ project, reverse }: { project: ProjectEntry; reverse: boolean }) => {
-  const [expanded, setExpanded] = useState(false);
-  const isLong = project.description.length > LONG_DESCRIPTION_LENGTH;
-
   return (
     <Paper
       variant="outlined"
@@ -40,27 +33,9 @@ const ProjectCard = ({ project, reverse }: { project: ProjectEntry; reverse: boo
           <Typography variant="body2" sx={{ color: 'primary.main', fontWeight: 600 }}>
             {project.period}
           </Typography>
-          <Typography
-            variant="body2"
-            sx={{
-              lineHeight: 1.7,
-              display: '-webkit-box',
-              WebkitBoxOrient: 'vertical',
-              WebkitLineClamp: expanded || !isLong ? 'unset' : 4,
-              overflow: 'hidden',
-            }}
-          >
+          <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
             {project.description}
           </Typography>
-          {isLong ? (
-            <Button
-              size="small"
-              onClick={() => setExpanded((current) => !current)}
-              sx={{ alignSelf: 'flex-start', px: 0, minWidth: 0 }}
-            >
-              {expanded ? 'Leer menos' : 'Leer más'}
-            </Button>
-          ) : null}
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
             {project.tags.map((tag) => (
               <Chip key={tag} label={tag} size="small" variant="outlined" color="primary" />
