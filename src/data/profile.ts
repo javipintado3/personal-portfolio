@@ -114,6 +114,7 @@ export const projects: ProjectEntry[] = [
       'App móvil para repartir el sueldo en sobres y saber siempre cuánto te queda. Planificas el mes una vez (sueldo, ahorro, aportaciones fijas y un presupuesto por categoría) y después apuntas los gastos con dos toques. El resumen te enseña lo gastado y lo que queda en cada categoría, te avisa al llegar al 80 % del presupuesto y calcula tu ahorro real frente a tu meta anual. Incluye gastos recurrentes que se apuntan solos, gráficas de los últimos meses, modo claro y oscuro, y copia de seguridad. Cuentas con Firebase Authentication y datos en Firestore, con las mismas cifras en todos los dispositivos y uso sin conexión. Se instala como PWA en el móvil y se despliega en Vercel.',
     tags: ['React', 'TypeScript', 'Material UI', 'Zustand', 'Firebase', 'PWA'],
     github: 'https://github.com/javipintado3/stash',
+    demo: 'https://stash-six-rho.vercel.app',
     imagesVariant: 'mobile',
     images: [
       { src: '/projects/stash/summary.png', alt: 'Resumen del mes con el sueldo, el ahorro real y el progreso de cada categoría' },
