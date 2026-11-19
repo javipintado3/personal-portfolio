@@ -145,7 +145,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: 'Desarrollador full stack',
     company: 'Viafirma',
-    logoUrl: 'https://www.google.com/s2/favicons?domain=viafirma.com&sz=128',
+    logoUrl: '/logos/viafirma.png',
     period: 'sept. 2025 - actualidad',
     since: '2025-09-01',
     location: 'Tomares, Andalucía, España',
@@ -165,7 +165,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: 'Desarrollador / IoT Technician',
     company: 'Cibernos',
-    logoUrl: 'https://www.google.com/s2/favicons?domain=cibernos.com&sz=128',
+    logoUrl: '/logos/cibernos.png',
     period: 'oct. 2024 - sept. 2025',
     duration: '1 año',
     location: 'Sevilla, Andalucía, España',
@@ -184,7 +184,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: 'Desarrollador full stack',
     company: 'Eviden',
-    logoUrl: 'https://www.google.com/s2/favicons?domain=eviden.com&sz=128',
+    logoUrl: '/logos/eviden.png',
     period: 'mar. 2024 - jun. 2024',
     duration: '4 meses · Contrato de prácticas',
     location: 'Sevilla, Andalucía, España',
