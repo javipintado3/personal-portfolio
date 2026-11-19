@@ -2,7 +2,7 @@ import { Avatar, Box, Button, Container, Stack, Typography } from '@mui/material
 import { IconBrandLinkedin, IconDownload, IconMail, IconMapPin } from '@tabler/icons-react';
 
 import profilePhoto from '../../assets/profile.jpg';
-import { profile, stats } from '../../data/profile';
+import { profile } from '../../data/profile';
 
 const [firstName, ...lastNames] = profile.name.split(' ');
 
@@ -185,26 +185,6 @@ const Hero = () => {
               >
                 Descargar CV
               </Button>
-            </Stack>
-
-            <Stack
-              direction="row"
-              spacing={{ xs: 2.5, md: 3 }}
-              useFlexGap
-              flexWrap="wrap"
-              justifyContent={{ xs: 'center', md: 'flex-start' }}
-              sx={{ pt: 1, ...slideInLeft(0.8) }}
-            >
-              {stats.map((stat) => (
-                <Stack key={stat.label} direction="row" spacing={0.75} alignItems="baseline">
-                  <Typography variant="subtitle1" sx={{ fontWeight: 700, color: 'primary.main' }}>
-                    {stat.value}
-                  </Typography>
-                  <Typography variant="caption" sx={{ color: 'text.secondary', whiteSpace: 'nowrap' }}>
-                    {stat.label}
-                  </Typography>
-                </Stack>
-              ))}
             </Stack>
           </Stack>
 

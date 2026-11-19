@@ -33,10 +33,6 @@ export type ProjectEntry = {
   highlights: string[];
 };
 
-export type StatEntry = {
-  value: string;
-  label: string;
-};
 
 export type HobbyAnimation = 'rowing' | 'running' | 'gym';
 
@@ -61,11 +57,6 @@ export const profile = {
   github: 'https://github.com/javipintado3',
 };
 
-export const stats: StatEntry[] = [
-  { value: '7', label: 'años de remo de élite' },
-  { value: '3', label: 'proyectos propios' },
-  { value: '21,1 km', label: 'media maratón' },
-];
 
 export const skillGroups: { title: string; skills: string[] }[] = [
   {
