@@ -27,7 +27,12 @@ export type ProjectEntry = {
   images?: { src: string; alt: string }[];
   /** `mobile` enseña las capturas dentro de un marco de teléfono. */
   imagesVariant?: 'desktop' | 'mobile';
+  /** Estado del proyecto: se enseña como una etiqueta de color junto al nombre. */
+  status: { label: string; color: 'success' | 'warning' | 'info' };
+  /** Tres datos clave del proyecto, en una línea con iconos. */
+  highlights: string[];
 };
+
 
 export type HobbyAnimation = 'rowing' | 'running' | 'gym';
 
@@ -42,6 +47,7 @@ export type HobbyEntry = {
 
 export const profile = {
   name: 'Javier Pintado Navarro',
+  tagline: 'Construyo interfaces React cuidadas, con un backend sólido detrás.',
   headline: 'Desarrollador Full-Stack en Viafirma',
   location: 'Camas, Andalucía, España',
   about:
@@ -50,6 +56,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/javier-pintado-navarro-06811a2ab/',
   github: 'https://github.com/javipintado3',
 };
+
 
 export const skillGroups: { title: string; skills: string[] }[] = [
   {
@@ -99,6 +106,8 @@ export const projects: ProjectEntry[] = [
     description:
       'Red social móvil para registrar y compartir entrenos de fuerza. Creas tu split con sus rutinas, entrenas con el cronómetro y las series en vivo, y la app te recuerda lo que levantaste la última vez con ese ejercicio, ese agarre y ese gimnasio. Las series se pueden marcar (con ayuda, con correas, acompañado), y el perfil guarda el historial, los récords y un calendario con tu racha semanal. Cada ejercicio lleva su dibujo y la app te avisa cuando superas un récord. API con Java 21, Spring Boot y PostgreSQL, y una app para iOS, Android y web con React Native, Expo y Tamagui, con tests automáticos y despliegue con Docker.',
     tags: ['React Native', 'Expo', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+    status: { label: 'En desarrollo', color: 'warning' },
+    highlights: ['iOS, Android y web', 'Récords y rachas', 'API propia con tests'],
     imagesVariant: 'mobile',
     images: [
       { src: '/projects/strappr/workout.png', alt: 'Entreno en curso con cronómetro, dibujos de los ejercicios y aviso de récords' },
@@ -115,6 +124,8 @@ export const projects: ProjectEntry[] = [
     tags: ['React', 'TypeScript', 'Material UI', 'Zustand', 'Firebase', 'PWA'],
     github: 'https://github.com/javipintado3/stash',
     demo: 'https://stash-six-rho.vercel.app',
+    status: { label: 'En producción', color: 'success' },
+    highlights: ['Instalable como PWA', 'Funciona sin conexión', 'Modo claro y oscuro'],
     imagesVariant: 'mobile',
     images: [
       { src: '/projects/stash/summary.png', alt: 'Resumen del mes con el sueldo, el ahorro real y el progreso de cada categoría' },
@@ -131,6 +142,8 @@ export const projects: ProjectEntry[] = [
     tags: ['Angular', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
     github: 'https://github.com/javipintado3/Eduvibe-v2',
     demo: 'https://eduvibe-v2.vercel.app',
+    status: { label: 'En producción', color: 'success' },
+    highlights: ['159 tests automáticos', 'Verificación en dos pasos', 'Cumple RGPD'],
     images: [
       { src: '/projects/eduvibe/login.jpg', alt: 'Pantalla de inicio de sesión' },
       { src: '/projects/eduvibe/solicitar-cuenta.png', alt: 'Solicitud de cuenta con mensaje para la administración' },
