@@ -62,10 +62,9 @@ export const profile = {
 };
 
 export const stats: StatEntry[] = [
-  { value: '7', label: 'años de remo de alto rendimiento' },
-  { value: '3', label: 'proyectos propios publicados' },
-  { value: '159', label: 'tests automáticos en EduVibe v2' },
-  { value: '21,1 km', label: 'media maratón corrida en 2026' },
+  { value: '7', label: 'años de remo de élite' },
+  { value: '3', label: 'proyectos propios' },
+  { value: '21,1 km', label: 'media maratón' },
 ];
 
 export const skillGroups: { title: string; skills: string[] }[] = [
