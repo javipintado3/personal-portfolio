@@ -110,7 +110,7 @@ export const projects: ProjectEntry[] = [
     name: 'Strappr',
     period: 'Proyecto personal · En proceso desde 2026',
     description:
-      'Red social móvil para registrar y compartir entrenos de fuerza. Creas tu split con sus rutinas, entrenas con el cronómetro y las series en vivo, y la app te recuerda lo que levantaste la última vez con ese ejercicio, ese agarre y ese gimnasio. Las series se pueden marcar (con ayuda, con correas, acompañado), y el perfil guarda el historial, los récords y un calendario con tu racha semanal. Cada ejercicio lleva su dibujo y la app te avisa cuando superas un récord. API con Java 21, Spring Boot y PostgreSQL, y una app para iOS, Android y web con React Native, Expo y Tamagui, con tests automáticos y despliegue con Docker.',
+      'Red social móvil para registrar y compartir entrenos de fuerza, hecha a mi medida porque ninguna app me dejaba apuntar el agarre de cada ejercicio ni personalizar el gimnasio donde entreno. Creas tu split con sus rutinas, entrenas con el cronómetro y las series en vivo, y la app te recuerda lo que levantaste la última vez con ese ejercicio, ese agarre y ese gimnasio. Las series se pueden marcar (con ayuda, con correas, acompañado), y el perfil guarda el historial, los récords y un calendario con tu racha semanal. Cada ejercicio lleva su dibujo y la app te avisa cuando superas un récord. API con Java 21, Spring Boot y PostgreSQL, y una app para iOS, Android y web con React Native, Expo y Tamagui, con tests automáticos y despliegue con Docker.',
     tags: ['React Native', 'Expo', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
     status: { label: 'En desarrollo', color: 'warning' },
     highlights: ['iOS, Android y web', 'Récords y rachas', 'API propia con tests'],
@@ -126,7 +126,7 @@ export const projects: ProjectEntry[] = [
     name: 'Stash',
     period: 'Proyecto personal · 2026',
     description:
-      'App móvil para repartir el sueldo en sobres y saber siempre cuánto te queda. Planificas el mes una vez (sueldo, ahorro, aportaciones fijas y un presupuesto por categoría) y después apuntas los gastos con dos toques. El resumen te enseña lo gastado y lo que queda en cada categoría, te avisa al llegar al 80 % del presupuesto y calcula tu ahorro real frente a tu meta anual. Incluye gastos recurrentes que se apuntan solos, gráficas de los últimos meses, modo claro y oscuro, y copia de seguridad. Cuentas con Firebase Authentication y datos en Firestore, con las mismas cifras en todos los dispositivos y uso sin conexión. Se instala como PWA en el móvil y se despliega en Vercel.',
+      'App móvil para repartir el sueldo en sobres y saber siempre cuánto te queda, pensada para mi uso personal: controlar mis ahorros y planificar mi futuro con una guía clara. Planificas el mes una vez (sueldo, ahorro, aportaciones fijas y un presupuesto por categoría) y después apuntas los gastos con dos toques. El resumen te enseña lo gastado y lo que queda en cada categoría, te avisa al llegar al 80 % del presupuesto y calcula tu ahorro real frente a tu meta anual. Incluye gastos recurrentes que se apuntan solos, gráficas de los últimos meses, modo claro y oscuro, y copia de seguridad. Cuentas con Firebase Authentication y datos en Firestore, con las mismas cifras en todos los dispositivos y uso sin conexión. Se instala como PWA en el móvil y se despliega en Vercel.',
     tags: ['React', 'TypeScript', 'Material UI', 'Zustand', 'Firebase', 'PWA'],
     github: 'https://github.com/javipintado3/stash',
     demo: 'https://stash-six-rho.vercel.app',
