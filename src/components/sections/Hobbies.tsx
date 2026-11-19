@@ -36,13 +36,13 @@ const Hobbies = () => {
         <SectionTitle>Fuera del trabajo</SectionTitle>
 
         <Grid container spacing={3}>
-          {hobbies.map((hobby) => {
+          {hobbies.map((hobby, index) => {
             const look = LOOKS[hobby.animation];
             const HobbyIcon = look.icon;
             const Animation = look.animation;
             return (
               <Grid key={hobby.title} size={{ xs: 12, sm: 4 }}>
-                <Reveal stretch>
+                <Reveal stretch delay={index * 150}>
                   <FlipCard
                     front={
                       <Box

@@ -4,6 +4,7 @@ import { CssBaseline, type PaletteMode, ThemeProvider } from '@mui/material';
 
 import BackToTop from './components/layout/BackToTop';
 import Footer from './components/layout/Footer';
+import CursorGlow from './components/layout/CursorGlow';
 import Header from './components/layout/Header';
 import ScrollProgress from './components/layout/ScrollProgress';
 import About from './components/sections/About';
@@ -46,17 +47,19 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <ScrollProgress />
-      <Header mode={mode} onToggleMode={toggleMode} />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Hobbies />
-      <Contact />
-      <Footer />
-      <BackToTop />
+      <CursorGlow>
+        <ScrollProgress />
+        <Header mode={mode} onToggleMode={toggleMode} />
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Hobbies />
+        <Contact />
+        <Footer />
+        <BackToTop />
+      </CursorGlow>
     </ThemeProvider>
   );
 };

@@ -7,9 +7,11 @@ type RevealProps = {
   timeout?: number;
   /** Que el contenido ocupe toda la altura disponible (tarjetas que deben medir lo mismo). */
   stretch?: boolean;
+  /** Retraso en ms antes de aparecer: sirve para que varias tarjetas entren en cascada. */
+  delay?: number;
 };
 
-const Reveal = ({ children, timeout = 600, stretch = false }: RevealProps) => {
+const Reveal = ({ children, timeout = 600, stretch = false, delay = 0 }: RevealProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -33,7 +35,7 @@ const Reveal = ({ children, timeout = 600, stretch = false }: RevealProps) => {
 
   return (
     <div ref={ref} style={stretch ? { height: '100%' } : undefined}>
-      <Grow in={visible} timeout={timeout}>
+      <Grow in={visible} timeout={timeout} style={{ transitionDelay: `${delay}ms` }}>
         <div style={stretch ? { height: '100%' } : undefined}>{children}</div>
       </Grow>
     </div>

@@ -1,7 +1,8 @@
-import { Box, Button, Chip, Container, Grid, Paper, Stack, Typography } from '@mui/material';
+import { Box, Button, Chip, Container, Grid, Stack, Typography } from '@mui/material';
 import { IconBrandGithub, IconCircleCheck, IconCircleFilled, IconExternalLink } from '@tabler/icons-react';
 
 import ImageGallery from '../common/ImageGallery';
+import TiltCard from '../common/TiltCard';
 import Reveal from '../common/Reveal';
 import SectionTitle from '../common/SectionTitle';
 import { projects, type ProjectEntry } from '../../data/profile';
@@ -9,18 +10,7 @@ import { projects, type ProjectEntry } from '../../data/profile';
 // Con `reverse` la tarjeta enseña las capturas a la izquierda y el texto a la derecha (solo en pantallas grandes)
 const ProjectCard = ({ project, reverse }: { project: ProjectEntry; reverse: boolean }) => {
   return (
-    <Paper
-      variant="outlined"
-      sx={{
-        p: { xs: 2.5, md: 3.5 },
-        borderRadius: 3,
-        transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-        '&:hover': {
-          transform: 'translateY(-6px)',
-          boxShadow: 6,
-        },
-      }}
-    >
+    <TiltCard variant="outlined" sx={{ p: { xs: 2.5, md: 3.5 }, borderRadius: 3 }}>
       <Stack
         direction={{ xs: 'column', md: reverse ? 'row-reverse' : 'row' }}
         spacing={{ xs: 3, md: 5 }}
@@ -93,7 +83,7 @@ const ProjectCard = ({ project, reverse }: { project: ProjectEntry; reverse: boo
           </Box>
         ) : null}
       </Stack>
-    </Paper>
+    </TiltCard>
   );
 };
 

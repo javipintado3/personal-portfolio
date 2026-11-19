@@ -30,7 +30,7 @@ const Skills = () => {
             const GroupIcon = look.icon;
             return (
               <Grid key={group.title} size={{ xs: 12, sm: 4 }}>
-                <Reveal stretch>
+                <Reveal stretch delay={index * 150}>
                   <Box
                     sx={{
                       position: 'relative',

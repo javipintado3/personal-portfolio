@@ -47,6 +47,12 @@ export type HobbyEntry = {
 
 export const profile = {
   name: 'Javier Pintado Navarro',
+  roles: [
+    'Frontend con React y TypeScript',
+    'Interfaces con Material UI',
+    'APIs con Java y Spring Boot',
+    'Remero y corredor de media maratón',
+  ],
   tagline: 'Construyo interfaces React cuidadas, con un backend sólido detrás.',
   headline: 'Desarrollador Full-Stack en Viafirma',
   location: 'Camas, Andalucía, España',

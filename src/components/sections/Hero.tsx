@@ -1,6 +1,7 @@
 import { Avatar, Box, Button, Container, Stack, Typography } from '@mui/material';
 import { IconBrandLinkedin, IconDownload, IconMail, IconMapPin } from '@tabler/icons-react';
 
+import Typewriter from '../common/Typewriter';
 import profilePhoto from '../../assets/profile.jpg';
 import { profile } from '../../data/profile';
 
@@ -143,6 +144,10 @@ const Hero = () => {
 
             <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500, ...slideInLeft(0.45) }}>
               {profile.headline}
+            </Typography>
+
+            <Typography variant="h6" component="div" sx={{ color: 'primary.main', fontWeight: 600, ...slideInLeft(0.5) }}>
+              <Typewriter phrases={profile.roles} />
             </Typography>
 
             <Stack
