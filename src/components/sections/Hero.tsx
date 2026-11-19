@@ -136,8 +136,12 @@ const Hero = () => {
 
             <Typography
               variant="h5"
-              sx={{ color: 'text.secondary', fontWeight: 500, ...slideInLeft(0.4) }}
+              sx={{ fontWeight: 600, lineHeight: 1.35, maxWidth: 460, ...slideInLeft(0.4) }}
             >
+              {profile.tagline}
+            </Typography>
+
+            <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500, ...slideInLeft(0.45) }}>
               {profile.headline}
             </Typography>
 

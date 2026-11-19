@@ -23,3 +23,13 @@ body,
 body {
   overflow-x: hidden;
 }
+
+/* Fondo con algo de personalidad: dos halos de color y una rejilla de puntos muy suave */
+body {
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(41, 82, 227, 0.09), transparent 38%),
+    radial-gradient(circle at 92% 55%, rgba(162, 75, 224, 0.08), transparent 40%),
+    radial-gradient(rgba(108, 76, 224, 0.1) 1px, transparent 1px);
+  background-size: auto, auto, 26px 26px;
+  background-attachment: fixed;
+}

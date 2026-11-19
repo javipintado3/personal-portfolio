@@ -1,5 +1,5 @@
 import { Box, Button, Chip, Container, Grid, Paper, Stack, Typography } from '@mui/material';
-import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
+import { IconBrandGithub, IconCircleCheck, IconCircleFilled, IconExternalLink } from '@tabler/icons-react';
 
 import ImageGallery from '../common/ImageGallery';
 import Reveal from '../common/Reveal';
@@ -27,12 +27,32 @@ const ProjectCard = ({ project, reverse }: { project: ProjectEntry; reverse: boo
         sx={{ alignItems: { md: 'center' } }}
       >
         <Stack spacing={1.5} sx={{ flex: 1, minWidth: 0 }}>
-          <Typography variant="h5" sx={{ fontWeight: 700 }}>
-            {project.name}
-          </Typography>
+          <Stack direction="row" spacing={1.5} useFlexGap sx={{ alignItems: 'center', flexWrap: 'wrap' }}>
+            <Typography variant="h5" sx={{ fontWeight: 700 }}>
+              {project.name}
+            </Typography>
+            <Chip
+              label={project.status.label}
+              size="small"
+              color={project.status.color}
+              variant="outlined"
+              icon={<IconCircleFilled size={8} />}
+              sx={{ fontWeight: 600 }}
+            />
+          </Stack>
           <Typography variant="body2" sx={{ color: 'primary.main', fontWeight: 600 }}>
             {project.period}
           </Typography>
+          <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: 'wrap' }}>
+            {project.highlights.map((highlight) => (
+              <Stack key={highlight} direction="row" spacing={0.75} sx={{ alignItems: 'center', color: 'text.secondary' }}>
+                <IconCircleCheck size={16} color="#22C55E" />
+                <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                  {highlight}
+                </Typography>
+              </Stack>
+            ))}
+          </Stack>
           <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
             {project.description}
           </Typography>

@@ -13,6 +13,7 @@ import Hero from './components/sections/Hero';
 import Hobbies from './components/sections/Hobbies';
 import Projects from './components/sections/Projects';
 import Skills from './components/sections/Skills';
+import Stats from './components/sections/Stats';
 import getTheme from './theme';
 
 const THEME_STORAGE_KEY = 'theme-mode';
@@ -49,6 +50,7 @@ const App = () => {
       <ScrollProgress />
       <Header mode={mode} onToggleMode={toggleMode} />
       <Hero />
+      <Stats />
       <About />
       <Experience />
       <Projects />
